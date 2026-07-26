@@ -21,3 +21,13 @@ I selected Issue #153 because it is a clearly defined Tier 1 bug that is self co
 
 **Cohort ledger:** [x] Issue added to cohort ledger
 
+
+## Week 8 - Reproduction & solution planning
+
+**Reproduction summary:**
+I successfully reproduced the issue by running pytest tests/unit/test_faithfulness_checker.py. The test test_none_context_chunk_text failed with a TypeError: sequence item 0: expected str instance, NoneType found, confirming that the .join() operation crashes when a context chunk contains an explicit None value.
+
+**PLAN.md link:** https://github.com/Advik777/pathreview/blob/fix/153-faithfulness-checker-none-type/PLAN.md
+
+**Blockers or open questions:**
+The other assertion failures (score 0.0) appear to be side effects of using the 'mock' LLM provider, but the primary crash (TypeError) is localized to the string handling logic I am assigned to fix.
