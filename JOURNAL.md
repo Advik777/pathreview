@@ -31,3 +31,17 @@ I successfully reproduced the issue by running pytest tests/unit/test_faithfulne
 
 **Blockers or open questions:**
 The other assertion failures (score 0.0) appear to be side effects of using the 'mock' LLM provider, but the primary crash (TypeError) is localized to the string handling logic I am assigned to fix.
+
+
+## Week 9 - Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+I have successfully implemented the fix in rag/evaluator/faithfulness_checker.py. I updated the context string concatenation to use the chunk.get("text") or "" pattern, which gracefully handles explicit None values. I verified the fix by running pytest tests/unit/test_faithfulness_checker.py. The test_none_context_chunk_text which previously crashed with a TypeError is now passing.
+
+**Next steps:**
+I will now open a Draft PR to get peer/mentor feedback. I have noted 3 pre-existing test failures related to the mock LLM provider (returning 0.0) which are unrelated to my code changes; I will document these in my PR description as per the project guidelines.
+
+**Blockers:**
+None.
