@@ -45,3 +45,18 @@ I will now open a Draft PR to get peer/mentor feedback. I have noted 3 pre-exist
 
 **Blockers:**
 None.
+
+
+### Check-in 2 (end of week)
+
+**PR link:** https://github.com/ascherj/pathreview/pull/361
+**Branch:** fix/153-faithfulness-checker-none-type
+
+**What you built:**
+I fixed a TypeError in the Faithfulness Checker that occurred when a context chunk's text was explicitly set to None. I updated the extraction logic to use a null-safe pattern (or ""), ensuring the system handles missing or null text gracefully during context concatenation.
+
+**Tests added or updated:**
+I verified the fix using tests/unit/test_faithfulness_checker.py. The reproduction test test_none_context_chunk_text now passes, and I confirmed that my changes did not introduce any new failures.
+
+**Self-review confirmation:** [x] make check passes [x] make test-unit passes
+**Draft PR feedback received from:** none (shared on Slack, awaiting response)
