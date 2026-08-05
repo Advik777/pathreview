@@ -60,3 +60,35 @@ I verified the fix using tests/unit/test_faithfulness_checker.py. The reproducti
 
 **Self-review confirmation:** [x] make check passes [x] make test-unit passes
 **Draft PR feedback received from:** none (shared on Slack, awaiting response)
+
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [x] No — still awaiting review
+
+**Summary of feedback:**
+As per the Summer 2026 cohort notes, no formal reviewer feedback was provided for this module.
+
+**How you responded:**
+N/A
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+The most challenging part was initially navigating a multi module codebase that I didn't build. Even for a Tier 1 issue, tracing the logic from the failing test in tests/unit/ back to the specific line in rag/evaluator/faithfulness_checker.py took more mental effort than I anticipated. I also found the pre-commit hooks surprising at first; having my commits blocked because of formatting was a new experience that highlighted how strict production standards can be.
+
+**What did you learn about working in a large codebase?**
+I learned that contributing to production code is as much about reading and respecting existing patterns as it is about writing new code. Unlike my own projects where I know every line, here I had to rely heavily on the documentation (SETUP.md, CONTRIBUTING.md) and the automated test suite to ensure I wasn't breaking something elsewhere. The use of a Makefile to standardize environment setup and testing was a huge eye-opener for maintaining consistency across different machines.
+
+**How did AI tools help — and where did they fall short?**
+AI tools were incredibly helpful for diagnosing the root cause of the TypeError and suggesting the concise or "" fix. However, they fell short when it came to project-specific environment issues, such as the Docker daemon connection error I encountered. I had to go beyond AI by manually checking my system settings and the provided documentation to realize I just needed to have the Docker Desktop app running.
+
+**What would you do differently if you started over?**
+If I started over, I would spend more time reading the Makefile and pre commit configurations. Understanding those earlier would have saved me some confusion during my first implementation push. I would also try to explore the integration tests more deeply to see how my small logic fix impacted the broader RAG pipeline.
+
+**What are you most proud of from this module?**
+I am most proud of successfully setting up the entire development environment including Docker, PostgreSQL, and a virtual environment on my M4 Mac and getting a clean pytest pass. Seeing the test_none_context_chunk_text test change from a red "FAILED" to a green "PASSED" gave me a real sense of accomplishment as a contributor.
